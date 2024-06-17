@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos - Privadas 🔥</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="imagens/logo1.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="square">
+        <img src="imagens/logo1.png" alt="Logo" class="logo">
+        <h2 class="title">Este é um site adulto</h2>
+        <p class="description">Este site contém material com restrições de idade, incluindo nudez e representações explícitas de atividade sexual. Ao se registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente em visualizar conteúdo sexualmente explícito</p> 
+        <div class="buttons">
+            <button class="btn btn-green" onclick="playFullscreenVideo()">Tenho 18 anos ou mais - Entrar</button>
+            <button class="btn btn-blue">Tenho menos de 18 anos - Sair</button>
+        </div>
+    </div>
+
+    <video id="video" class="hidden">
+        <source src="media/videotrol.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+
+    <audio id="audio" loop>
+        <source src="media\audiozinho.mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
+
+    <script>
+        function playFullscreenVideo() {
+            var video = document.getElementById('video');
+            var audio = document.getElementById('audio');
+
+            video.classList.remove('hidden');
+            video.play();
+
+            if (audio.paused) {
+                audio.play();
+            }
+
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        }
+
+        window.addEventListener('beforeunload', function (e) {
+            var confirmationMessage = 'voce fooi trolado rsrs'; // Mensagem de confirmação
+
+            e.preventDefault(); // Cancela o evento padrão
+
+            e.returnValue = confirmationMessage; // Define a mensagem de confirmação para exibição
+
+            return confirmationMessage; // Retorna a mensagem de confirmação (necessário para navegadores mais antigos)
+        });
+    </script>
+</body>
+</html>
